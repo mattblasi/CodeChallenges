@@ -1,0 +1,11 @@
+{
+  "name": "codechallenges",
+  "version": "1.0.0",
+  "description": "code challenges from sites like HackerRank just to practice and explore ideas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Blasi",
+  "license": "ISC"
+}
