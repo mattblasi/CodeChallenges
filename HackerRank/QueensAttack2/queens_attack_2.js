@@ -26,7 +26,6 @@ function readLine() {
 
 // Complete the queensAttack function below.
 function queensAttack(n, k, r_q, c_q, obstacles) {
-    console.log(n, k, r_q, c_q, obstacles);
     /*
     - n: an integer, the number of rows and columns in the board
     - k: an integer, the number of obstacles on the board
