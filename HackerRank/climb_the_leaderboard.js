@@ -1,3 +1,8 @@
+/*
+Climbing the Leaderboard Javascript Solution
+https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+*/
+
 'use strict';
 
 const fs = require('fs');

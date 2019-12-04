@@ -1,3 +1,8 @@
+/*
+Queens Attack 2 Javascript Solution
+https://www.hackerrank.com/challenges/queens-attack-2/problem
+*/
+
 'use strict';
 
 const fs = require('fs');

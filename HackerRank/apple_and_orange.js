@@ -1,3 +1,8 @@
+/*
+Apple and Orange Javascript Solution
+https://www.hackerrank.com/challenges/apple-and-orange
+*/
+
 'use strict';
 
 process.stdin.resume();

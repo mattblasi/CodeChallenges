@@ -1,3 +1,8 @@
+/*
+Morgan and a String Javascript Solution
+https://www.hackerrank.com/challenges/morgan-and-a-string/problem
+*/
+
 'use strict';
 
 const fs = require('fs');

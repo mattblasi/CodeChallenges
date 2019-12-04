@@ -1,3 +1,8 @@
+/*
+The Hurdle Race Javascript Solution
+https://www.hackerrank.com/challenges/the-hurdle-race/problem
+*/
+
 'use strict';
 
 const fs = require('fs');
