@@ -48,33 +48,43 @@ function queensAttack(n, k, r_q, c_q, obstacles) {
         // horizontal and vertical will always be (n-1);
         let hvAtt = (n - 1) * 2; 
         let diAtt = 0;
+        
+        // queen is in along the edge
         if (r_q === n || r_q === 0 || c_q === n || c_q === 0) {
-            // queen is in along the edge
             diAtt = n - 1;
+            
+        // queen is somewhere in the middle
         } else {
-            // queen is somewhere in the middle
             diAtt =
                 Math.min(n-c_q, r_q-1) +
                 Math.min(n-c_q, n-r_q) +
                 Math.min(c_q-1, r_q-1) +
                 Math.min(c_q-1, n-r_q);
         }
+        
         return diAtt + hvAtt;
+    
+    // has obstacles
     } else {
+        /*
+        This section alone should techinically work for all test cases, you may not need it
+        for your own solution. I personally like to begin with the simplest test cases to 
+        prevent simple problems from running through the more complex logic.
+        */
         // find the closest obstacle in each direction
         let cr = n - c_q,   
-                cl = c_q - 1,
-                ru = n - r_q,
-                rd = r_q - 1;
+            cl = c_q - 1,
+            ru = n - r_q,
+            rd = r_q - 1;
 
         let oB=-1,
-                oT=-1,
-                oR=-1,
-                oL=-1,
-                oTL=-1,
-                oTR=-1,
-                oBL=-1,
-                oBR=-1;
+            oT=-1,
+            oR=-1,
+            oL=-1,
+            oTL=-1,
+            oTR=-1,
+            oBL=-1,
+            oBR=-1;
 
         for(let o=0; o<k; o++){
             // left
@@ -120,15 +130,15 @@ function queensAttack(n, k, r_q, c_q, obstacles) {
         }
 
         // available attacks
-        let b = (oB != -1) ? r_q - oB - 1 : r_q - 1,
-                t = (oT != -1) ? oT - r_q - 1 : n - r_q,
-                r = (oR != -1) ? oR - c_q - 1 : n - c_q,
-                l = (oL != -1) ? c_q - oL - 1 : c_q - 1;
+        let b = (oB != -1) ? r_q - oB - 1 : r_q - 1,    // bottom
+            t = (oT != -1) ? oT - r_q - 1 : n - r_q,    // top
+            r = (oR != -1) ? oR - c_q - 1 : n - c_q,    // right
+            l = (oL != -1) ? c_q - oL - 1 : c_q - 1;    // left
 
-        let tr = (oTR != -1) ? oTR - c_q - 1 : Math.min(n-c_q, n-r_q),
-                tl = (oTL != -1) ? c_q - oTL - 1 : Math.min(c_q-1, n-r_q),
-                br = (oBR != -1) ? oBR - c_q - 1 : Math.min(n-c_q, r_q-1),
-                bl = (oBL != -1) ? c_q - oBL - 1 : Math.min(c_q-1, r_q-1);
+        let tr = (oTR != -1) ? oTR - c_q - 1 : Math.min(n-c_q, n-r_q),  // top right
+            tl = (oTL != -1) ? c_q - oTL - 1 : Math.min(c_q-1, n-r_q),  // top left
+            br = (oBR != -1) ? oBR - c_q - 1 : Math.min(n-c_q, r_q-1),  // bottom right
+            bl = (oBL != -1) ? c_q - oBL - 1 : Math.min(c_q-1, r_q-1);  // bottom left
 
         return b + t + r + l + tr + tl + br + bl;
     }
