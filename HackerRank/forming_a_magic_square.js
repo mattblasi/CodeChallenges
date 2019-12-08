@@ -43,9 +43,10 @@ function formingMagicSquare(s) {
     of the possible solutions and taking the lowest option from those comparisons.
     */
 
-    // combine the matrix into a simple array
-    let arr=s.reduce((a,b)=>{ return a.concat(b) });
-    let options=[];
+    // combine the matrix into a simple 2D array
+    let arr=s.reduce((a,b)=>{ return a.concat(b) }),
+        lowest=1000;
+    
     // hard coded the possible options as a single array as well
     let ms = [
             [8, 1, 6, 3, 5, 7, 4, 9, 2],
@@ -60,17 +61,16 @@ function formingMagicSquare(s) {
 
     // loop through each option
     for(let x=0; x<ms.length; x++){
-        let row=ms[x];
         let total=0;
         // compare one value at a time against the provided data
-        for(let y=0; y<row.length; y++){
-            total+=Math.abs((arr[y]-row[y]));
+        for(let y=0; y<ms[x].length; y++){
+            total+=Math.abs((arr[y]-ms[x][y]));
         }
-        // push the total for each row to an array
-        options.push(total);
+        // keep only the lowest
+        if(total<lowest) lowest=total;
     }
-    // return the lowest number in the array.
-    return Math.min(...options);
+
+    return lowest;
 }
 
 function main() {
